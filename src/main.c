@@ -1,4 +1,4 @@
-#include "pushswap.h"
+#include "../includes/pushswap.h"
 
 int main(int argc, char **argv)
 {
