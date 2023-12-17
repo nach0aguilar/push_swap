@@ -60,13 +60,21 @@ static int	checknums(char **nums)
 
 t_stack	*newnode(t_stack *head, int num)
 {
-	t_stack	*stack;
+	t_stack	*node;
+	t_stack	*cur;
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	if (!stack)
+	node = (t_stack *)malloc(sizeof(t_stack));
+	if (!node)
 		return (NULL);
-	stack->nb = ft_atoi(num);
-	return (stack);
+	node->nb = num;
+	node->next = NULL;
+	if (head == NULL)
+		return (node);
+	cur = head;
+	while (cur->next != NULL)
+		cur = cur->next;
+	cur->next = node;
+	return (head);
 }
 
 int	main(int argc, char **argv)
@@ -81,15 +89,16 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (0);
 	}
+	
 	stack_A = NULL;
 	i = 1;
 	n = 0;
-	while (argv[i++])
+	while (argv[i])
 	{
 		n = ft_atoi(argv[i]);
 		stack_A = newnode(stack_A, n);
+		i++;
 	}
-	stack_A = NULL;
 	while (stack_A != NULL)
 	{
 		printf("%d\n", stack_A->nb);
