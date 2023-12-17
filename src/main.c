@@ -58,37 +58,39 @@ static int	checknums(char **nums)
 	return (1);
 }
 
-// static t_stack	*newstack(char *num)
-// {
-// 	t_stack	*stack;
+t_stack	*newnode(t_stack *head, int num)
+{
+	t_stack	*stack;
 
-// 	stack = (t_stack *)malloc(sizeof(t_stack));
-// 	if (!stack)
-// 		return (NULL);
-// 	stack->nb = ft_atoi(num);
-// 	return (stack);
-// }
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	stack->nb = ft_atoi(num);
+	return (stack);
+}
 
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_A;
-	//t_stack	*stack_B;
+	int		i;
+	int		n;
 
+	// t_stack	*stack_B;
 	if (argc < 2 || checknums(argv) == 0)
 	{
 		write(1, "Error\n", 6);
 		return (0);
 	}
-	int i = 1;
-	while(argv[i])
+	stack_A = NULL;
+	i = 1;
+	n = 0;
+	while (argv[i++])
 	{
-		stack_A->nb = atoi(argv[i]);
-		stack_A = stack_A->next;
-		i++;
+		n = ft_atoi(argv[i]);
+		stack_A = newnode(stack_A, n);
 	}
 	stack_A = NULL;
-
-	while(stack_A != NULL)
+	while (stack_A != NULL)
 	{
 		printf("%d\n", stack_A->nb);
 		stack_A = stack_A->next;
