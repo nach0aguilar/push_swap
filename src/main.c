@@ -77,30 +77,46 @@ t_stack	*newnode(t_stack *head, int num)
 	return (head);
 }
 
+t_stack	*newstack(t_stack *stack, char **nums)
+{
+	int	i;
+	int	n;
+
+	i = 1;
+	n = 0;
+	while (nums[i])
+	{
+		n = ft_atoi(nums[i++]);
+		stack = newnode(stack, n);
+	}
+	return (stack);
+}
+
+void printstack(t_stack *stack)
+{
+	while (stack != NULL)
+	{
+		printf("%d\n", stack->nb);
+		stack = stack->next;
+	}
+}
+
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_A;
-	int		i;
-	int		n;
 
-	// t_stack	*stack_B;
+	t_stack	*stack_B;
 	if (argc < 2 || checknums(argv) == 0)
 	{
 		write(1, "Error\n", 6);
 		return (0);
 	}
-	
 	stack_A = NULL;
-	i = 1;
-	n = 0;
-	while (argv[i])
-	{
-		n = ft_atoi(argv[i++]);
-		stack_A = newnode(stack_A, n);
-	}
-	while (stack_A != NULL)
-	{
-		printf("%d\n", stack_A->nb);
-		stack_A = stack_A->next;
-	}
+	stack_A = newstack(stack_A, argv);
+	stack_B = NULL;
+	swap_ab(stack_A, stack_B);
+	printstack(stack_A);
+	printf("\n");
+	printstack(stack_B);
 }
