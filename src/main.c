@@ -58,7 +58,7 @@ static int	checknums(char **nums)
 	return (1);
 }
 
-t_stack	*newnode(t_stack *head, int num)
+t_stack	*newnode(t_stack **head, int num)
 {
 	t_stack	*node;
 	t_stack	*cur;
@@ -68,16 +68,16 @@ t_stack	*newnode(t_stack *head, int num)
 		return (NULL);
 	node->nb = num;
 	node->next = NULL;
-	if (head == NULL)
+	if (*head == NULL)
 		return (node);
-	cur = head;
+	cur = *head;
 	while (cur->next != NULL)
 		cur = cur->next;
 	cur->next = node;
-	return (head);
+	return (*head);
 }
 
-t_stack	*newstack(t_stack *stack, char **nums)
+t_stack	*newstack(t_stack **stack, char **nums)
 {
 	int	i;
 	int	n;
@@ -87,36 +87,50 @@ t_stack	*newstack(t_stack *stack, char **nums)
 	while (nums[i])
 	{
 		n = ft_atoi(nums[i++]);
-		stack = newnode(stack, n);
+		*stack = newnode(stack, n);
 	}
-	return (stack);
+	return (*stack);
 }
 
-void printstack(t_stack *stack)
+void printstack(t_stack **stack)
 {
-	while (stack != NULL)
+	t_stack *cur;
+
+	cur = *stack;
+	while (cur != NULL)
 	{
-		printf("%d\n", stack->nb);
-		stack = stack->next;
+		printf("%d\n", cur->nb);
+		cur = cur->next;
 	}
 }
 
+// void push_b(t_stack **a, t_stack **b)
+// {
+//     t_stack *temp;
+
+//     temp = *a;
+//     *a = (*a)->next;
+// 	temp->next = *b;
+//     *b = temp;    
+// }
 
 int	main(int argc, char **argv)
 {
-	t_stack	*stack_A;
-
-	t_stack	*stack_B;
+	t_stack	**stack_A;
+	t_stack	**stack_B;
 	if (argc < 2 || checknums(argv) == 0)
 	{
 		write(1, "Error\n", 6);
 		return (0);
 	}
 	stack_A = NULL;
-	stack_A = newstack(stack_A, argv);
+	*stack_A = newstack(stack_A, argv);
 	stack_B = NULL;
-	swap_ab(stack_A, stack_B);
+	*stack_B = newstack(stack_B, argv);
+	//push_b(stack_A, stack_B);
+	printf("Stack A:\n");
 	printstack(stack_A);
 	printf("\n");
+	printf("Stack B:\n");
 	printstack(stack_B);
 }
