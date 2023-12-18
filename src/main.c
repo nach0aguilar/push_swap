@@ -95,9 +95,8 @@ int	main(int argc, char **argv)
 	n = 0;
 	while (argv[i])
 	{
-		n = ft_atoi(argv[i]);
+		n = ft_atoi(argv[i++]);
 		stack_A = newnode(stack_A, n);
-		i++;
 	}
 	while (stack_A != NULL)
 	{
