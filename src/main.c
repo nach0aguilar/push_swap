@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2023/12/20 14:14:32 by igaguila         ###   ########.fr       */
+/*   Updated: 2023/12/20 20:47:45 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,20 +104,18 @@ t_stack	*newstack(t_stack **stack, char **nums)
 	return (*stack);
 }
 
-void swap_ab(t_stack **a, t_stack **b)
+void    rotate_a(t_stack **a)
 {
-    int temp_a;
-    int temp_b;
+    int last;
 
-    temp_a = (*a)->nb;
+    last = (*a)->nb;
     (*a)->nb = (*a)->next->nb;
-    (*a)->next->nb = temp_a;
-
-    temp_b = (*b)->nb;
-    (*b)->nb = (*b)->next->nb;
-    (*b)->next->nb = temp_b;
-
-    printf("ss");
+    while((*a)->next != NULL)
+    {
+        (*a)->nb = (*a)->next->nb; 
+    }
+    (*a)->nb = last;
+	(*a)->next = NULL;
 }
 
 void printstack(t_stack **stack)
@@ -145,10 +143,10 @@ int	main(int argc, char **argv)
 	*stack_A = newstack(stack_A, argv);
 	stack_B = (t_stack **)malloc(sizeof(t_stack *));
 	*stack_B = newstack(stack_B, argv);
-	swap_ab(stack_A, stack_B);
+	rotate_a(stack_A);
 	printf("Stack A:\n");
 	printstack(stack_A);
-	printf("\n");
-	printf("Stack B:\n");
-	printstack(stack_B);
+	// printf("\n");
+	// printf("Stack B:\n");
+	// printstack(stack_B);
 }
