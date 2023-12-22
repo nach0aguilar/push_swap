@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2023/12/20 20:47:45 by igaguila         ###   ########.fr       */
+/*   Updated: 2023/12/22 14:35:10 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ typedef struct s_stack
 {
 	int				nb;
 	struct s_stack	*next;
+	struct s_stack	*prev;
 }					t_stack;
 
 int	ft_atoi(const char *str)
@@ -104,18 +105,25 @@ t_stack	*newstack(t_stack **stack, char **nums)
 	return (*stack);
 }
 
-void    rotate_a(t_stack **a)
+void	reverse_a(t_stack **a)
 {
-    int last;
+	t_stack	*temp;
+    t_stack *first;
 
-    last = (*a)->nb;
-    (*a)->nb = (*a)->next->nb;
-    while((*a)->next != NULL)
-    {
-        (*a)->nb = (*a)->next->nb; 
-    }
-    (*a)->nb = last;
+    first = *a;
+	temp = *a;
+    while (temp->next)
+		temp = temp->next;
+	(*a)->prev = NULL;
+	(*a) = temp;
+	while(first->next != NULL)
+	{
+		(*a)->next = first;
+		*a = (*a)->next;
+		first = first->next;
+	}
 	(*a)->next = NULL;
+	printf("ra\n");
 }
 
 void printstack(t_stack **stack)
@@ -143,10 +151,10 @@ int	main(int argc, char **argv)
 	*stack_A = newstack(stack_A, argv);
 	stack_B = (t_stack **)malloc(sizeof(t_stack *));
 	*stack_B = newstack(stack_B, argv);
-	rotate_a(stack_A);
+	reverse_a(stack_A);
 	printf("Stack A:\n");
 	printstack(stack_A);
-	// printf("\n");
-	// printf("Stack B:\n");
-	// printstack(stack_B);
+	printf("\n");
+	printf("Stack B:\n");
+	printstack(stack_B);
 }
