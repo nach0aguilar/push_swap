@@ -6,11 +6,11 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:08 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/04 11:31:45 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/01/04 12:19:58 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/pushswap.h"
+#include "../../includes/pushswap.h"
 
 void	swap_a(t_stack **a)
 {
