@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:25 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/04 11:14:06 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/01/04 11:33:44 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ void	reverse(t_stack **stack)
 	t_stack	*temp;
 	t_stack	*lastnode;
 
- 	temp = NULL;
+	temp = NULL;
 	lastnode = *stack;
-	
-    while (lastnode->next)
+	while (lastnode->next)
 	{
 		temp = lastnode;
 		lastnode = lastnode->next;
@@ -33,17 +32,17 @@ void	reverse(t_stack **stack)
 void	reverse_a(t_stack **a)
 {
 	reverse(a);
-	printf("rra\n");
+	ft_printf("rra\n");
 }
 void	reverse_b(t_stack **b)
 {
 	reverse(b);
-	printf("rrb\n");
+	ft_printf("rrb\n");
 }
 
 void	reverse_ab(t_stack **a, t_stack **b)
 {
 	reverse(a);
 	reverse(b);
-	printf("rrr\n");
+	ft_printf("rrr\n");
 }
