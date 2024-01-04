@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2023/12/22 14:35:10 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/01/04 11:16:28 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,27 +105,6 @@ t_stack	*newstack(t_stack **stack, char **nums)
 	return (*stack);
 }
 
-void	reverse_a(t_stack **a)
-{
-	t_stack	*temp;
-    t_stack *first;
-
-    first = *a;
-	temp = *a;
-    while (temp->next)
-		temp = temp->next;
-	(*a)->prev = NULL;
-	(*a) = temp;
-	while(first->next != NULL)
-	{
-		(*a)->next = first;
-		*a = (*a)->next;
-		first = first->next;
-	}
-	(*a)->next = NULL;
-	printf("ra\n");
-}
-
 void printstack(t_stack **stack)
 {
 	t_stack *cur;
@@ -151,7 +130,7 @@ int	main(int argc, char **argv)
 	*stack_A = newstack(stack_A, argv);
 	stack_B = (t_stack **)malloc(sizeof(t_stack *));
 	*stack_B = newstack(stack_B, argv);
-	reverse_a(stack_A);
+	reverse_b(stack_B);
 	printf("Stack A:\n");
 	printstack(stack_A);
 	printf("\n");
