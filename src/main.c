@@ -6,22 +6,15 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/04 11:16:28 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/01/09 13:13:44 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "../includes/pushswap.h"
+#include "../includes/pushswap.h"
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
-typedef struct s_stack
-{
-	int				nb;
-	struct s_stack	*next;
-	struct s_stack	*prev;
-}					t_stack;
 
 int	ft_atoi(const char *str)
 {
