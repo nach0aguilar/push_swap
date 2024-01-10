@@ -6,15 +6,11 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/09 13:13:44 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/01/10 15:56:18 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
 
 int	ft_atoi(const char *str)
 {
@@ -121,12 +117,5 @@ int	main(int argc, char **argv)
 	}
 	stack_A = (t_stack **)malloc(sizeof(t_stack *));
 	*stack_A = newstack(stack_A, argv);
-	stack_B = (t_stack **)malloc(sizeof(t_stack *));
-	*stack_B = newstack(stack_B, argv);
-	reverse_b(stack_B);
-	printf("Stack A:\n");
-	printstack(stack_A);
-	printf("\n");
-	printf("Stack B:\n");
-	printstack(stack_B);
+	stack_B = NULL;
 }
