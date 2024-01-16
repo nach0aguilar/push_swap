@@ -6,7 +6,7 @@
 #    By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/03 11:24:06 by igaguila          #+#    #+#              #
-#    Updated: 2024/01/09 13:09:08 by igaguila         ###   ########.fr        #
+#    Updated: 2024/01/16 10:52:18 by igaguila         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,14 +27,14 @@ RM				= 	rm -f
 all: ${NAME}
 
 ${NAME}: ${OBJS}
-	ar rcs ${NAME} ${OBJS}
+	@ar rcs ${NAME} ${OBJS}
 
 clean:
-	${RM} ${OBJS}
+	@${RM} ${OBJS}
 
 fclean:
-	${RM} ${OBJS}
-	${RM} ${NAME}
+	@${RM} ${OBJS}
+	@${RM} ${NAME}
 
 re:	fclean all
 

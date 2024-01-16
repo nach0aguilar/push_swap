@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:43 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/04 11:34:42 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/01/16 10:50:17 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct s_stack
 {
 	int				nb;
+	int				index;
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }					t_stack;
