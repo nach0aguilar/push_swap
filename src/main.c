@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/11 20:50:46 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/01/18 13:25:20 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,30 @@ static int	checknums(char **nums)
 	return (1);
 }
 
-t_stack	*newnode(t_stack *head, int num)
+void	addindex(t_stack *head)
+{
+	t_stack	*cur;
+	t_stack	*comp;
+
+	cur = head;
+	while (cur != NULL)
+	{
+		comp = head;
+		while (comp != NULL)
+		{
+			if (cur->nb <= comp->nb)
+				comp = comp->next;
+			else if (cur->nb > comp->nb)
+			{
+				cur->index += 1;
+				comp = comp->next;
+			}
+		}
+		cur = cur->next;
+	}
+}
+
+t_stack	*addnodes(t_stack *head, int num)
 {
 	t_stack	*node;
 	t_stack	*cur;
@@ -69,6 +92,7 @@ t_stack	*newnode(t_stack *head, int num)
 	if (!node)
 		return (NULL);
 	node->nb = num;
+	node->index = 1;
 	node->next = NULL;
 	if (head == NULL)
 		return (node);
@@ -89,19 +113,20 @@ t_stack	*newstack(t_stack **stack, char **nums)
 	while (nums[i])
 	{
 		n = ft_atoi(nums[i++]);
-		*stack = newnode(*stack, n);
+		*stack = addnodes(*stack, n);
 	}
+	addindex(*stack);
 	return (*stack);
 }
 
-void printstack(t_stack **stack)
+void	printstack(t_stack **stack)
 {
-	t_stack *cur;
+	t_stack	*cur;
 
 	cur = *stack;
 	while (cur != NULL)
 	{
-		ft_printf("%d\n", cur->nb);
+		ft_printf("%d %d\n", cur->nb, cur->index);
 		cur = cur->next;
 	}
 }
@@ -109,7 +134,8 @@ void printstack(t_stack **stack)
 int	main(int argc, char **argv)
 {
 	t_stack	**stack_A;
-	//t_stack	**stack_B;
+
+	// t_stack	**stack_B;
 	if (argc < 2 || checknums(argv) == 0)
 	{
 		write(1, "Error\n", 6);
@@ -117,15 +143,15 @@ int	main(int argc, char **argv)
 	}
 	stack_A = (t_stack **)malloc(sizeof(t_stack *));
 	*stack_A = newstack(stack_A, argv);
-	//stack_B = NULL;
+	// stack_B = NULL;
 	reverse_a(stack_A);
 	printstack(stack_A);
 }
-//para calcular el indice de cada numero tengo que recorrer la lista 
-//tantas veces como numeros tenga y sumarle al indice del numero al que se
-//lo quiero asignar las veces que sea mayor que el resto de numeros
-//una vez tenga todos los indices calculare la media de los mismos para
-//decidir el pivote
+// para calcular el indice de cada numero tengo que recorrer la lista
+// tantas veces como numeros tenga y sumarle al indice del numero al que se
+// lo quiero asignar las veces que sea mayor que el resto de numeros
+// una vez tenga todos los indices calculare la media de los mismos para
+// decidir el pivote
 
 /*
 FUNCIONES QUE NECESITO:
