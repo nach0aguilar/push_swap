@@ -1,42 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/20 15:15:52 by igaguila         ###   ########.fr       */
+/*   Created: 2024/01/20 15:04:41 by igaguila          #+#    #+#             */
+/*   Updated: 2024/01/20 15:10:53 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/pushswap.h"
+#include "../../includes/pushswap.h"
 
-void	printstack(t_stack **stack)
+void	addindex(t_stack *head)
 {
 	t_stack	*cur;
+	t_stack	*comp;
 
-	cur = *stack;
+	cur = head;
 	while (cur != NULL)
 	{
-		ft_printf("%d %d\n", cur->nb, cur->index);
+		comp = head;
+		while (comp != NULL)
+		{
+			if (cur->nb <= comp->nb)
+				comp = comp->next;
+			else if (cur->nb > comp->nb)
+			{
+				cur->index += 1;
+				comp = comp->next;
+			}
+		}
 		cur = cur->next;
 	}
 }
 
-int	main(int argc, char **argv)
-{
-	t_stack	**stack_A;
-
-	// t_stack	**stack_B;
-	if (argc < 2 || checknums(argv) == 0)
-	{
-		write(1, "Error\n", 6);
-		return (0);
-	}
-	stack_A = (t_stack **)malloc(sizeof(t_stack *));
-	*stack_A = newstack(stack_A, argv);
-	// stack_B = NULL;
-	reverse_a(stack_A);
-	printstack(stack_A);
-}

@@ -6,7 +6,7 @@
 #    By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 13:54:56 by igaguila          #+#    #+#              #
-#    Updated: 2024/01/18 12:52:41 by igaguila         ###   ########.fr        #
+#    Updated: 2024/01/20 15:25:18 by igaguila         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = gcc
 CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
 
-SRC = $(wildcard src/*.c src/rules/*.c)
+SRC = $(wildcard src/*.c src/rules/*.c src/utils/*.c src/sort/*.c)
 OBJ = ${SRC:.c=.o}
 
 LIBFT_DIR = includes/libft
