@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:06:34 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/20 15:07:03 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/01/21 19:51:32 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,19 @@ t_stack	*newstack(t_stack **stack, char **nums)
 	}
 	addindex(*stack);
 	return (*stack);
+}
+
+int		stacksize(t_stack **a)
+{
+	t_stack *cur;
+	int size;
+
+	cur = *a;
+	size = 0;
+	while(cur != NULL)
+	{
+		cur = cur->next;
+		size++;
+	}
+	return(size);
 }

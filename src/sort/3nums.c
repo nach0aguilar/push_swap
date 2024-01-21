@@ -6,7 +6,43 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:24:11 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/20 15:24:12 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/01/21 19:02:36 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../../includes/pushswap.h"
+
+/*
+si tengo por ejemplo
+2
+3
+1
+rra
+
+1
+3
+2
+rra
+sa
+
+2
+1
+3
+sa
+
+3
+2
+1
+sa
+rra
+
+3
+1
+2
+ra
+*/
+
+// void    sort_3(t_stack *a)
+// {
+//     if()
+// }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check.c                                            :+:      :+:    :+:   */
+/*   nums.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:15:56 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/20 15:16:48 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/01/21 19:50:33 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,20 @@ int	checknums(char **nums)
 		i++;
 	}
 	return (1);
+}
+
+int		maxnum(t_stack **a)
+{
+	t_stack *cur;
+	int num;
+
+	cur = *a;
+	num = (cur)->nb;
+	while(cur != NULL)
+	{
+		if(cur->nb > num)
+			num = cur->nb;
+		cur = cur->next;
+	}
+	return(num);
 }
