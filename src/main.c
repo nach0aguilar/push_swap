@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/21 19:45:03 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:40:21 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,11 @@ int	main(int argc, char **argv)
 	*stack_A = newstack(stack_A, argv);
 	// stack_B = NULL;
 	// reverse_a(stack_A);
+	// printstack(stack_A);
+	// ft_printf("EL STACKSIZE ES: %d\n", stacksize(stack_A));
+	// ft_printf("EL NÚMERO MÁXIMO ES: %d", maxnum(stack_A));
+	if (argc == 4)
+		sort_3(stack_A);
+	printf("\n\n");
 	printstack(stack_A);
-	ft_printf("EL STACKSIZE ES: %d\n", stacksize(stack_A));
-	ft_printf("EL NÚMERO MÁXIMO ES: %d", maxnum(stack_A));
 }

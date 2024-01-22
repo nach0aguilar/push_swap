@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:04:41 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/20 15:10:53 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/01/22 12:39:41 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,13 @@ void	addindex(t_stack *head)
 		}
 		cur = cur->next;
 	}
+}
+
+int		pivot(t_stack **a)
+{
+	int pivot;
+
+	pivot = (maxnum(a) / 2) + 1;
+	return(pivot);
 }
 

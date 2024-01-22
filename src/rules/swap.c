@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:08 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/04 12:19:58 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/01/22 13:26:57 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,34 +14,38 @@
 
 void	swap_a(t_stack **a)
 {
-	int	temp;
+	t_stack	*temp;
 
-	temp = (*a)->nb;
-	(*a)->nb = (*a)->next->nb;
-	(*a)->next->nb = temp;
+	temp = *a;
+	*a = (*a)->next;
+	temp->next = (*a)->next;
+	(*a)->next = temp;
 	ft_printf("sa");
 }
 
 void	swap_b(t_stack **b)
 {
-	int	temp;
+	t_stack	*temp;
 
-	temp = (*b)->nb;
-	(*b)->nb = (*b)->next->nb;
-	(*b)->next->nb = temp;
+	temp = *b;
+	*b = (*b)->next;
+	temp->next = (*b)->next;
+	(*b)->next = temp;
 	ft_printf("sb");
 }
 
 void	swap_ab(t_stack **a, t_stack **b)
 {
-	int	temp_a;
-	int	temp_b;
+	t_stack	*temp_a;
+	t_stack	*temp_b;
 
-	temp_a = (*a)->nb;
-	(*a)->nb = (*a)->next->nb;
-	(*a)->next->nb = temp_a;
-	temp_b = (*b)->nb;
-	(*b)->nb = (*b)->next->nb;
-	(*b)->next->nb = temp_b;
+	temp_a = *a;
+	*a = (*a)->next;
+	temp_a->next = (*a)->next;
+	(*a)->next = temp_a;
+	temp_b = *b;
+	*b = (*b)->next;
+	temp_b->next = (*b)->next;
+	(*b)->next = temp_b;
 	ft_printf("ss");
 }
