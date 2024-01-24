@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:15:56 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/21 19:50:33 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/01/24 09:52:57 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,18 +38,41 @@ int	checknums(char **nums)
 	return (1);
 }
 
-int		maxnum(t_stack **a)
+int	checkdup(t_stack **a)
+{
+	t_stack	*cur;
+	t_stack	*comp;
+
+	cur = *a;
+	while (cur != NULL)
+	{
+		comp = cur->next;
+		while (comp != NULL)
+		{
+			if (comp->nb == cur->nb || !(cur->nb >= INT_MIN && cur->nb <= INT_MAX))
+			{
+				ft_printf("Error\n");
+				return (0);
+			}
+			comp = comp->next;
+		}
+		cur = cur->next;
+	}
+	return (1);
+}
+
+int	maxnum(t_stack **a)
 {
 	t_stack *cur;
 	int num;
 
 	cur = *a;
 	num = (cur)->nb;
-	while(cur != NULL)
+	while (cur != NULL)
 	{
-		if(cur->nb > num)
+		if (cur->nb > num)
 			num = cur->nb;
 		cur = cur->next;
 	}
-	return(num);
+	return (num);
 }

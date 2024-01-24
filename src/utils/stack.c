@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:06:34 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/21 19:51:32 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:43:22 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,37 @@ t_stack	*newstack(t_stack **stack, char **nums)
 	return (*stack);
 }
 
-int		stacksize(t_stack **a)
+int	stacksize(t_stack **a)
 {
-	t_stack *cur;
-	int size;
+	t_stack	*cur;
+	int		size;
 
 	cur = *a;
 	size = 0;
-	while(cur != NULL)
+	while (cur != NULL)
 	{
 		cur = cur->next;
 		size++;
 	}
-	return(size);
+	return (size);
+}
+
+int	checksort(t_stack **a, t_stack **b)
+{
+	t_stack *cur_a;
+
+	cur_a = *a;
+	if (!b)
+	{
+		while (cur_a != NULL)
+		{
+			if (cur_a->nb < cur_a->next->nb || cur_a->next == NULL)
+				cur_a = cur_a->next;
+			else
+				return (0);
+		}
+	}
+	else
+		return (0);
+	return (1);
 }

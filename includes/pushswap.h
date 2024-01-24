@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:43 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/22 12:37:21 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:44:17 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "ft_printf/ft_printf.h"
 # include "libft/libft.h"
+# include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -54,10 +55,12 @@ int					pivot(t_stack **a);
 t_stack				*newstack(t_stack **stack, char **nums);
 t_stack				*addnodes(t_stack *head, int num);
 int					stacksize(t_stack **a);
+int					checksort(t_stack **a, t_stack **b);
 
 // NUMS
 int					checknums(char **nums);
 int					maxnum(t_stack **a);
+int					checkdup(t_stack **a);
 
 // SORT
 void				sort_3(t_stack **a);
