@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:04:41 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/22 12:39:41 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:06:02 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,3 +43,18 @@ int		pivot(t_stack **a)
 	return(pivot);
 }
 
+int	maxindex(t_stack **a)
+{
+	t_stack *cur;
+	int num;
+
+	cur = *a;
+	num = (cur)->index;
+	while (cur != NULL)
+	{
+		if (cur->index > num)
+			num = cur->index;
+		cur = cur->next;
+	}
+	return (num);
+}

@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3nums.c                                            :+:      :+:    :+:   */
+/*   allnums.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/20 15:24:11 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/30 10:50:11 by igaguila         ###   ########.fr       */
+/*   Created: 2024/01/30 10:50:00 by igaguila          #+#    #+#             */
+/*   Updated: 2024/02/01 10:57:42 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-void	sort_3(t_stack **a)
+void	separation(t_stack **a, t_stack **b)
 {
-	if (maxnum(a) == (*a)->nb)
-		rotate_a(a);
-	else if ((*a)->next->nb == maxnum(a))
-		reverse_a(a);
-	if ((*a)->nb > (*a)->next->nb)
-		swap_a(a);
+	while (stacksize(a) > 3)
+	{
+		if ((*a)->index <= maxindex(a) - 3)
+			push_b(a, b);
+		else if ((*a)->index > maxindex(a) - 3)
+			rotate_a(a);
+	}
+}
+
+void	sort_all(t_stack **a, t_stack **b)
+{
+	separation(a, b);
+	sort_3(a);
 }
