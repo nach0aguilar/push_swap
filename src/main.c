@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/01 10:56:10 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/01 17:48:02 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ int	main(int argc, char **argv)
 	// }
 
 	sort_all(stack_A, stack_B);
-	printf("\n\n");
-	printstack(stack_A);
-	printf("\n\n");
-	printstack(stack_B);
+	// printf("\n\n");
+	// printstack(stack_A);
+	free(stack_A);
+	free(stack_B);
 }

@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:06:34 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/25 11:45:48 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/02 14:37:43 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int	checksort(t_stack **a, t_stack **b)
 	cur_a = *a;
 	if (!*b)
 	{
-		while (cur_a != NULL)
+		while (cur_a->next != NULL)
 		{
 			if (cur_a->nb < cur_a->next->nb || cur_a->next == NULL)
 				cur_a = cur_a->next;

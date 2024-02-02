@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:43 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/30 15:31:20 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/01 17:34:32 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,6 @@ int					checkdup(t_stack **a);
 void				sort_3(t_stack **a);
 void				sort_all(t_stack **a, t_stack **b);
 void				separation(t_stack **a, t_stack **b);
+void				sortandpush(t_stack **a, t_stack **b);
 
 #endif
