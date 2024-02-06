@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:06:34 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/02 14:37:43 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/06 23:13:12 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_stack	*addnodes(t_stack *head, int num)
 		return (NULL);
 	node->nb = num;
 	node->index = 1;
+	node->pos = 0;
 	node->next = NULL;
 	if (head == NULL)
 		return (node);
@@ -44,7 +45,8 @@ t_stack	*newstack(t_stack **stack, char **nums)
 		n = ft_atoi(nums[i++]);
 		*stack = addnodes(*stack, n);
 	}
-	addindex(*stack);
+	addindex(stack);
+	position(stack);
 	return (*stack);
 }
 

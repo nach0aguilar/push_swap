@@ -6,21 +6,21 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:04:41 by igaguila          #+#    #+#             */
-/*   Updated: 2024/01/30 15:06:02 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/06 23:13:04 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-void	addindex(t_stack *head)
+void	addindex(t_stack **head)
 {
 	t_stack	*cur;
 	t_stack	*comp;
 
-	cur = head;
+	cur = *head;
 	while (cur != NULL)
 	{
-		comp = head;
+		comp = *head;
 		while (comp != NULL)
 		{
 			if (cur->nb <= comp->nb)
@@ -35,18 +35,33 @@ void	addindex(t_stack *head)
 	}
 }
 
-int		pivot(t_stack **a)
+void	position(t_stack **head)
 {
-	int pivot;
+	t_stack	*cur;
+	int		i;
+
+	cur = *head;
+	i = 0;
+	while (cur != NULL)
+	{
+		cur->pos = i;
+		i++;
+		cur = cur->next;
+	}
+}
+
+int	pivot(t_stack **a)
+{
+	int	pivot;
 
 	pivot = (maxnum(a) / 2) + 1;
-	return(pivot);
+	return (pivot);
 }
 
 int	maxindex(t_stack **a)
 {
-	t_stack *cur;
-	int num;
+	t_stack	*cur;
+	int		num;
 
 	cur = *a;
 	num = (cur)->index;
