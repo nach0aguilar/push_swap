@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:43 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/06 23:13:22 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/07 11:25:34 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void				reverse_ab(t_stack **a, t_stack **b);
 // INDEX
 void				addindex(t_stack **head);
 void				position(t_stack **head);
-int					pivot(t_stack **a);
+int					pivot(t_stack **s);
 int					maxindex(t_stack **a);
 
 // STACK

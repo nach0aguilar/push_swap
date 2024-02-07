@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/01 17:48:02 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/07 15:07:31 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	printstack(t_stack **stack)
 	cur = *stack;
 	while (cur != NULL)
 	{
-		ft_printf("%d %d\n", cur->nb, cur->index);
+		ft_printf("%d %d %d\n", cur->nb, cur->index, cur->pos);
 		cur = cur->next;
 	}
 }
@@ -37,10 +37,7 @@ int	main(int argc, char **argv)
 	stack_A = (t_stack **)malloc(sizeof(t_stack *));
 	*stack_A = newstack(stack_A, argv);
 	stack_B = (t_stack **)malloc(sizeof(t_stack *));
-	// reverse_a(stack_A);
-	// printstack(stack_A);
-	// ft_printf("EL STACKSIZE ES: %d\n", stacksize(stack_A));
-	// ft_printf("EL NÚMERO MÁXIMO ES: %d", maxnum(stack_A));
+	
 	// if (argc == 4 && checkdup(stack_A) == 1)
 	// {
 	// 	sort_3(stack_A);

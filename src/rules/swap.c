@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:08 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/06 23:18:22 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/07 15:10:17 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	swap_a(t_stack **a)
 	temp->next = (*a)->next;
 	(*a)->next = temp;
 	position(a);
-	ft_printf("sa");
+	ft_printf("sa\n");
 }
 
 void	swap_b(t_stack **b)
@@ -33,7 +33,7 @@ void	swap_b(t_stack **b)
 	temp->next = (*b)->next;
 	(*b)->next = temp;
 	position(b);
-	ft_printf("sb");
+	ft_printf("sb\n");
 }
 
 void	swap_ab(t_stack **a, t_stack **b)
@@ -51,5 +51,5 @@ void	swap_ab(t_stack **a, t_stack **b)
 	(*b)->next = temp_b;
 	position(a);
 	position(b);
-	ft_printf("ss");
+	ft_printf("ss\n");
 }
