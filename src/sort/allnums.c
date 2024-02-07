@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:50:00 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/02 14:37:22 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/07 15:57:34 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 
 void	separation(t_stack **a, t_stack **b)
 {
+	while (stacksize(a) > (maxindex(a) / 2) && stacksize(a) > 3)
+	{
+		if ((*a)->index <= (maxindex(a) / 2))
+			push_b(a, b);
+		else
+			rotate_a(a);
+	}
 	while (stacksize(a) > 3)
 	{
 		if ((*a)->index <= maxindex(a) - 3)
