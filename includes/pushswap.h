@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:43 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/07 11:25:34 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/15 14:42:03 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ typedef struct s_stack
 	int				nb;
 	int				index;
 	int				pos;
+	int				target_pos;
+	int				cost_a;
+	int				cost_b;
 	struct s_stack	*next;
-	struct s_stack	*prev;
 }					t_stack;
 
 // SWAP
@@ -53,6 +55,7 @@ void				addindex(t_stack **head);
 void				position(t_stack **head);
 int					pivot(t_stack **s);
 int					maxindex(t_stack **a);
+int					minindex(t_stack **a);
 
 // STACK
 t_stack				*newstack(t_stack **stack, char **nums);
@@ -65,10 +68,20 @@ int					checknums(char **nums);
 int					maxnum(t_stack **a);
 int					checkdup(t_stack **a);
 
+// COSTS
+void				addtarget(t_stack **a, t_stack **b);
+void				costcalc(t_stack **a, t_stack **b);
+t_stack				*cheapestcost(t_stack **b);
+int					absvalue(int n);
+
+// NODES
+t_stack				*maxnode(t_stack **a);
+t_stack				*minnode(t_stack **a);
+
 // SORT
 void				sort_3(t_stack **a);
 void				sort_all(t_stack **a, t_stack **b);
 void				separation(t_stack **a, t_stack **b);
-void				sortandpush(t_stack **a, t_stack **b);
+void				sortandpush(t_stack **a, t_stack **b, t_stack *cheapnode);
 
 #endif

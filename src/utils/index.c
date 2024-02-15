@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:04:41 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/07 11:25:14 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:05:11 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,22 @@ int	maxindex(t_stack **a)
 	while (cur != NULL)
 	{
 		if (cur->index > num)
+			num = cur->index;
+		cur = cur->next;
+	}
+	return (num);
+}
+
+int	minindex(t_stack **a)
+{
+	t_stack	*cur;
+	int		num;
+
+	cur = *a;
+	num = (cur)->index;
+	while (cur != NULL)
+	{
+		if (cur->index < num)
 			num = cur->index;
 		cur = cur->next;
 	}

@@ -1,39 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   nodes.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 13:54:28 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/14 15:42:09 by igaguila         ###   ########.fr       */
+/*   Created: 2024/02/14 15:14:23 by igaguila          #+#    #+#             */
+/*   Updated: 2024/02/14 18:41:36 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-void	push_a(t_stack **a, t_stack **b)
+t_stack	*maxnode(t_stack **a)
 {
-	t_stack	*temp;
+	t_stack	*cur;
+	t_stack	*maxnode;
 
-	temp = *b;
-	*b = (*b)->next;
-	temp->next = *a;
-	*a = temp;
-	position(a);
-	position(b);
-	ft_printf("pa\n");
+	cur = *a;
+	maxnode = cur;
+	while (cur != NULL)
+	{
+		if (cur->index > maxnode->index)
+			maxnode = cur;
+		cur = cur->next;
+	}
+	return (maxnode);
 }
 
-void	push_b(t_stack **a, t_stack **b)
+t_stack	*minnode(t_stack **a)
 {
-	t_stack	*temp;
+	t_stack	*cur;
+	t_stack	*minnode;
 
-	temp = *a;
-	*a = (*a)->next;
-	temp->next = *b;
-	*b = temp;
-	position(a);
-	position(b);
-	ft_printf("pb\n");
+	cur = *a;
+	minnode = cur;
+	while (cur != NULL)
+	{
+		if (cur->index < minnode->index)
+			minnode = cur;
+		cur = cur->next;
+	}
+	return (minnode);
 }
