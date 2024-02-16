@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:43 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/15 14:42:03 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/16 14:41:34 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ void				sort_3(t_stack **a);
 void				sort_all(t_stack **a, t_stack **b);
 void				separation(t_stack **a, t_stack **b);
 void				sortandpush(t_stack **a, t_stack **b, t_stack *cheapnode);
+void				rotateandreverse(t_stack **a, t_stack **b, int n);
 
 #endif
