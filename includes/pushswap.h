@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:43 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/16 14:41:34 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:22:25 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ t_stack				*newstack(t_stack **stack, char **nums);
 t_stack				*addnodes(t_stack *head, int num);
 int					stacksize(t_stack **a);
 int					checksort(t_stack **a, t_stack **b);
+void				freestack(t_stack **s);
 
 // NUMS
 int					checknums(char **nums);

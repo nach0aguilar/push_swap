@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:06:34 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/06 23:13:12 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:20:22 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,4 +83,18 @@ int	checksort(t_stack **a, t_stack **b)
 	else
 		return (0);
 	return (1);
+}
+
+void freestack(t_stack **s)
+{
+	t_stack *cur;
+	t_stack *tmp;
+
+	cur = *s;
+	while(cur != NULL)
+	{
+		tmp = cur;
+		cur = cur->next;
+		free(tmp);
+	}
 }
