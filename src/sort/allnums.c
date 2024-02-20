@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:50:00 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/20 20:19:21 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/20 22:31:23 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,15 @@ void		sort_all(t_stack **a, t_stack **b)
 	{
 		costcalc(a, b);
 		cheapestmove(a, b);
+		position(a);
 	}
+	
 	while (minnode(a)->pos != 0)
 	{
 		if (minnode(a)->pos < maxindex(a) / 2)
 			rotate_a(a);
 		else
 			reverse_a(a);
+		position(a);
 	}
 }

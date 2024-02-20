@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:33:26 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/20 20:15:48 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/20 21:55:38 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ static void	addtarget(t_stack **a, t_stack **b)
 	cur_a = *a;
 	cur_b = *b;
 	target = NULL;
+    position(a);
+	position(b);
 	while (cur_b != NULL)
 	{
 		cur_a = *a;
