@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:33:26 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/15 15:15:50 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:15:48 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int     absvalue(int n)
         return(n);
 }
 
-void	addtarget(t_stack **a, t_stack **b)
+static void	addtarget(t_stack **a, t_stack **b)
 {
 	t_stack	*cur_a;
 	t_stack	*cur_b;
@@ -67,20 +67,26 @@ void costcalc(t_stack **a, t_stack **b)
     }
 }
 
-t_stack *cheapestcost(t_stack **b)
+void cheapestmove(t_stack **a, t_stack **b)
 {
     t_stack *cur_b;
-    t_stack *cheapcost;
+    int     cost_a;
+    int     cost_b;
+    int     cheapcost;
 
     cur_b = *b;
-    cheapcost = cur_b;
+    cheapcost = INT_MAX;
     while(cur_b != NULL)
     {
-        if(absvalue(cur_b->cost_a) + absvalue(cur_b->cost_b) < absvalue(cheapcost->cost_a) + absvalue(cheapcost->cost_b))
-            cheapcost = cur_b;
+        if(absvalue(cur_b->cost_a) + absvalue(cur_b->cost_b) < absvalue(cheapcost))
+        {
+            cheapcost = absvalue(cur_b->cost_a) + absvalue(cur_b->cost_b);
+            cost_a = cur_b->cost_a;
+            cost_b = cur_b->cost_b;
+        }
         cur_b = cur_b->next;
     }
-    return(cheapcost);
+    move(a, b, cost_a, cost_b);
 }
 
 

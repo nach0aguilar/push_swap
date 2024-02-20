@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:43 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/19 16:22:25 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/20 20:15:56 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,20 +70,19 @@ int					maxnum(t_stack **a);
 int					checkdup(t_stack **a);
 
 // COSTS
-void				addtarget(t_stack **a, t_stack **b);
 void				costcalc(t_stack **a, t_stack **b);
-t_stack				*cheapestcost(t_stack **b);
+void 				cheapestmove(t_stack **a, t_stack **b);
 int					absvalue(int n);
 
 // NODES
 t_stack				*maxnode(t_stack **a);
 t_stack				*minnode(t_stack **a);
 
+// MOVES
+void				move(t_stack **a, t_stack **b, int cost_a, int cost_b);
+
 // SORT
 void				sort_3(t_stack **a);
 void				sort_all(t_stack **a, t_stack **b);
-void				separation(t_stack **a, t_stack **b);
-void				sortandpush(t_stack **a, t_stack **b, t_stack *cheapnode);
-void				rotateandreverse(t_stack **a, t_stack **b, int n);
 
 #endif

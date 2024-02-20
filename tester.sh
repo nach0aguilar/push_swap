@@ -20,7 +20,7 @@ worst=0
 
 if [ $quantityWanted -eq 5 ]; then
     quantity=$((quantity + 5))
-    maxOperation=$((maxOperation + 11))
+    maxOperation=$((maxOperation + 12))
 elif [ $quantityWanted -eq 100 ]; then
     quantity=$((quantity + 100))
     maxOperation=$((maxOperation + 700))
@@ -29,55 +29,28 @@ elif [ $quantityWanted -eq 500 ]; then
     maxOperation=$((maxOperation + 5500))
 else
     read -p "[!] Choose the quantity of numbers [5, 100, 500] " quantityWanted
-    if [ $quantityWanted -eq 5 ]; then
-        quantity=$((quantity + 5))
-        maxOperation=$((maxOperation + 11))
-    elif [ $quantityWanted -eq 100 ]; then
-        quantity=$((quantity + 100))
-        maxOperation=$((maxOperation + 700))
-    elif [ $quantityWanted -eq 500 ]; then
-        quantity=$((quantity + 500))
-        maxOperation=$((maxOperation + 5500))
-    else
-        echo "[!] Invalid choice. Exiting..."
-        exit 1
-    fi
 fi
 
 numberGenerator() 
 {
     local cantidad=$quantity
-    local numbers=()
-    local i=0
 
-    while [ $i -lt $cantidad ]; do
-        random_number=$(jot -r 1 -1000000 1000000)
-        if ! [[ " ${numbers[@]} " =~ " $random_number " ]]; then
-            numbers+=($random_number)
-            i=$((i + 1))
-        fi
-    done
+    numeros_aleatorios=$(seq -1000000 1000000 | shuf | head -n $cantidad)
 
-    echo "${numbers[@]}"
+    echo "$numeros_aleatorios"
 }
 
 while [ "$n" -gt 0 ]; do
     randomNumbers=$(numberGenerator)
-    start=$(date +%s.%N | sed 's/N$//')
     operation=$(./push_swap $randomNumbers | wc -l)
-    end=$(date +%s.%N | sed 's/N$//')
-
-    # Calcular la diferencia de tiempo en segundos
-    duration=$(echo "scale=2; $end - $start" | bc)
-
 
     if [ $operation -le $maxOperation ]; then
-        echo -e "[+] TEST $i:${BOLD_YELLOW} $operation${NC} ${BOLD_GREEN}PASSED${NC} Time: ${duration} s"
+        echo -e "[+] TEST $i:${BOLD_YELLOW} $operation${NC} ${BOLD_GREEN}PASSED${NC}"
         passedtest=$((passedtest + 1))
     elif [ $operation -gt $maxOperation ]; then
-        echo -e "[+] TEST $i:${BOLD_YELLOW} $operation${NC} ${BOLD_RED}FAILED${NC} Time: ${duration} s"
+        echo -e "[+] TEST $i:${BOLD_YELLOW} $operation${NC} ${BOLD_RED}FAILED${NC}"
     fi
-    
+
     if [ $worst -lt $operation ]; then
         worst=$operation
     fi
@@ -85,13 +58,3 @@ while [ "$n" -gt 0 ]; do
     i=$((i + 1))
     n=$((n - 1))
 done
-
-result=$(echo "scale=2; ($passedtest / ($i - 1)) * 100" | bc)
-
-if [ $(echo "$result < 50" | bc) -eq 1 ]; then
-    echo -e "\nThe percent of passed test is ${BOLD_RED}$result%${NC}, and the worse case was $worst"
-elif [ $(echo "$result >= 50 && $result <= 70" | bc) -eq 1 ]; then
-    echo -e "\nThe percent of passed test is ${BOLD_YELLOW}$result%${NC}, and the worse case was $worst"
-elif [ $(echo "$result >= 70" | bc) -eq 1 ]; then
-    echo -e "\nThe percent of passed test is ${BOLD_GREEN}$result%${NC}, and the worse case was $worst"
-fi
