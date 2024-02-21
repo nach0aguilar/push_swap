@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/20 22:32:09 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/02/21 20:25:25 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,19 @@ void	printstack(t_stack **a, t_stack **b)
 	}
 }
 
+static void	push_swap(t_stack **a, t_stack **b)
+{
+	if (!checksort(a, b))
+	{
+		if(stacksize(a) == 2)
+			swap_a(a);
+		else if (stacksize(a) == 3)
+			sort_3(a);
+		else
+			sort_all(a, b);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	**stack_A;
@@ -48,26 +61,14 @@ int	main(int argc, char **argv)
 		write(1, "Error\n", 6);
 		return (0);
 	}
+	else if (argc == 2)
+		argv = ft_split(argv[1], ' ');
 	stack_A = (t_stack **)malloc(sizeof(t_stack *));
 	*stack_A = newstack(stack_A, argv);
 	stack_B = (t_stack **)malloc(sizeof(t_stack *));
-	
-	// if (argc == 4 && checkdup(stack_A) == 1)
-	// {
-	// 	sort_3(stack_A);
-	// 	printf("\n\n");
-	// 	printstack(stack_A);
-	// }
-	// else
-	// {
-	// 	sort_all(stack_A, stack_B);
-	// 	printf("\n\n");
-	// 	printstack(stack_A);
-	// 	printf("\n\n");
-	// 	printstack(stack_B);
-	// }
-
-	sort_all(stack_A, stack_B);
+	if (!checkdup(stack_A))
+		return (0);
+	push_swap(stack_A, stack_B);
 	// printf("\n\n");
 	// printstack(stack_A, stack_B);
 	freestack(stack_A);
