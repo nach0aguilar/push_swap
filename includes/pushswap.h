@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:43 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/21 21:33:08 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:46:40 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "ft_printf/ft_printf.h"
 # include "libft/libft.h"
+# include "get_next_line/get_next_line.h"
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -84,5 +85,22 @@ void				move(t_stack **a, t_stack **b, int cost_a, int cost_b);
 // SORT
 void				sort_3(t_stack **a);
 void				sort_all(t_stack **a, t_stack **b);
+
+// BONUS
+void				bonus_swap_a(t_stack **a);
+void				bonus_swap_b(t_stack **b);
+void				bonus_swap_ab(t_stack **a, t_stack **b);
+
+void				bonus_push_a(t_stack **a, t_stack **b);
+void				bonus_push_b(t_stack **a, t_stack **b);
+
+void				bonus_rotate_a(t_stack **a);
+void				bonus_rotate_b(t_stack **b);
+void				bonus_rotate_ab(t_stack **a, t_stack **b);
+
+void				bonus_reverse(t_stack **stack);
+void				bonus_reverse_a(t_stack **a);
+void				bonus_reverse_b(t_stack **b);
+void				bonus_reverse_ab(t_stack **a, t_stack **b);
 
 #endif
