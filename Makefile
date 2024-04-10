@@ -6,7 +6,7 @@
 #    By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/20 13:54:56 by igaguila          #+#    #+#              #
-#    Updated: 2024/04/09 17:53:34 by igaguila         ###   ########.fr        #
+#    Updated: 2024/04/10 16:19:18 by igaguila         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CFLAGS = -Wall -Werror -Wextra
 RM = rm -f
 
 SRC = $(wildcard src/*.c src/rules/*.c src/utils/*.c src/sort/*.c)
-BONUS_SRC = $(wildcard src/bonus/*.c)
+BONUS_SRC = $(wildcard src/rules/*.c src/utils/*.c src/sort/*.c src/bonus/*.c)
 
 OBJ = ${SRC:.c=.o}
 OBJ_BONUS = ${BONUS_SRC:.c=.o}
@@ -43,8 +43,8 @@ ${NAME}: ${OBJ}
 	@make -C includes/get_next_line
 	@${CC} ${CFLAGS} ${OBJ} ${LIBFT} ${PRINTF} -o ${NAME}
 
-${BONUS_NAME}: ${LIBFT} ${PRINTF} ${GNL} ${OBJ_BONUS}
-	@${CC} ${CFLAGS} ${BONUS_NAME} ${OBJ_BONUS} ${BONUS_INC} -o ${BONUS_NAME}
+${BONUS_NAME}: ${OBJ_BONUS}
+	@${CC} ${CFLAGS} ${OBJ_BONUS} ${BONUS_INC} -o ${BONUS_NAME}
 
 clean:
 	@make -C ${LIBFT_DIR} clean
