@@ -6,7 +6,7 @@
 #    By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/15 19:18:15 by igaguila          #+#    #+#              #
-#    Updated: 2024/01/16 10:51:48 by igaguila         ###   ########.fr        #
+#    Updated: 2024/04/11 16:15:21 by igaguila         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS			= 	ft_isprint.c ft_strlcat.c ft_substr.c ft_atoi.c \
 				  	ft_strrchr.c ft_isdigit.c ft_strjoin.c \
 				  	ft_strtrim.c ft_memmove.c ft_itoa.c ft_strmapi.c\
 				  	ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c\
-				  	ft_putendl_fd.c ft_putnbr_fd.c 
+				  	ft_putendl_fd.c ft_putnbr_fd.c ft_atol.c
 				  
 OBJS			= 	${SRCS:.c=.o}
 

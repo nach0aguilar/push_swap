@@ -6,18 +6,18 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/14 10:33:26 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/26 12:02:46 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/11 13:31:44 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-int     absvalue(int n)
+int	absvalue(int n)
 {
-    if(n < 0)
-        return(n * -1);
-    else
-        return(n);
+	if (n < 0)
+		return (n * -1);
+	else
+		return (n);
 }
 
 static void	addtarget(t_stack **a, t_stack **b)
@@ -29,7 +29,7 @@ static void	addtarget(t_stack **a, t_stack **b)
 	cur_a = *a;
 	cur_b = *b;
 	target = NULL;
-    position(a);
+	position(a);
 	position(b);
 	while (cur_b != NULL)
 	{
@@ -49,50 +49,49 @@ static void	addtarget(t_stack **a, t_stack **b)
 	}
 }
 
-void costcalc(t_stack **a, t_stack **b)
+void	costcalc(t_stack **a, t_stack **b)
 {
-    t_stack *cur_b;
-    int     size_a;
-    int     size_b;
+	t_stack	*cur_b;
+	int		size_a;
+	int		size_b;
 
-    cur_b = *b;
-    size_a = stacksize(a);
-    size_b = stacksize(b);
-    addtarget(a, b);
-    while(cur_b != NULL)
-    {
-        if(cur_b->target_pos <= size_a / 2)
-            cur_b->cost_a = cur_b->target_pos;
-        else
-            cur_b->cost_a = (size_a - cur_b->target_pos) * -1;
-        if(cur_b->pos <= size_b / 2)
-            cur_b->cost_b = cur_b->pos;
-        else
-            cur_b->cost_b = (size_b - cur_b->pos) * -1;
-        cur_b = cur_b->next;
-    }
+	cur_b = *b;
+	size_a = stacksize(a);
+	size_b = stacksize(b);
+	addtarget(a, b);
+	while (cur_b != NULL)
+	{
+		if (cur_b->target_pos <= size_a / 2)
+			cur_b->cost_a = cur_b->target_pos;
+		else
+			cur_b->cost_a = (size_a - cur_b->target_pos) * -1;
+		if (cur_b->pos <= size_b / 2)
+			cur_b->cost_b = cur_b->pos;
+		else
+			cur_b->cost_b = (size_b - cur_b->pos) * -1;
+		cur_b = cur_b->next;
+	}
 }
 
-void cheapestmove(t_stack **a, t_stack **b)
+void	cheapestmove(t_stack **a, t_stack **b)
 {
-    t_stack *cur_b;
-    int     cost_a;
-    int     cost_b;
-    int     cheapcost;
+	t_stack	*cur_b;
+	int		cost_a;
+	int		cost_b;
+	int		cheapcost;
 
-    cur_b = *b;
-    cheapcost = INT_MAX;
-    while(cur_b != NULL)
-    {
-        if(absvalue(cur_b->cost_a) + absvalue(cur_b->cost_b) < absvalue(cheapcost))
-        {
-            cheapcost = absvalue(cur_b->cost_a) + absvalue(cur_b->cost_b);
-            cost_a = cur_b->cost_a;
-            cost_b = cur_b->cost_b;
-        }
-        cur_b = cur_b->next;
-    }
-    move(a, b, cost_a, cost_b);
+	cur_b = *b;
+	cheapcost = INT_MAX;
+	while (cur_b != NULL)
+	{
+		if (absvalue(cur_b->cost_a)
+			+ absvalue(cur_b->cost_b) < absvalue(cheapcost))
+		{
+			cheapcost = absvalue(cur_b->cost_a) + absvalue(cur_b->cost_b);
+			cost_a = cur_b->cost_a;
+			cost_b = cur_b->cost_b;
+		}
+		cur_b = cur_b->next;
+	}
+	move(a, b, cost_a, cost_b);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:06:34 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/21 21:34:52 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/11 16:49:28 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,18 @@ t_stack	*addnodes(t_stack *head, int num)
 t_stack	*newstack(t_stack **stack, char **nums)
 {
 	int			i;
-	long int		n;
+	long		n;
 
-	i = 1;
+	i = 0;
 	n = 0;
-	while (nums[i])
+	while (nums[++i])
 	{
-		n = ft_atoi(nums[i++]);
-		if(n < -2147483648 || n > 2147483647)
+		n = ft_atol(nums[i]);
+		if (n < -2147483648 || n > 2147483647)
 		{
-			ft_printf("Error\n");
-			return (0);
+			ft_putstr_fd("Error\n", 2);
+			freestack(stack);
+			exit(EXIT_FAILURE);
 		}
 		*stack = addnodes(*stack, n);
 	}
@@ -72,7 +73,7 @@ int	stacksize(t_stack **a)
 
 int	checksort(t_stack **a, t_stack **b)
 {
-	t_stack *cur_a;
+	t_stack	*cur_a;
 
 	cur_a = *a;
 	if (!*b)
@@ -90,13 +91,13 @@ int	checksort(t_stack **a, t_stack **b)
 	return (1);
 }
 
-void freestack(t_stack **s)
+void	freestack(t_stack **s)
 {
-	t_stack *cur;
-	t_stack *tmp;
+	t_stack	*cur;
+	t_stack	*tmp;
 
 	cur = *s;
-	while(cur != NULL)
+	while (cur != NULL)
 	{
 		tmp = cur;
 		cur = cur->next;

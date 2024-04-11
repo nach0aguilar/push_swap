@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:43 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/09 15:46:40 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/11 13:19:50 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define PUSHSWAP_H
 
 # include "ft_printf/ft_printf.h"
-# include "libft/libft.h"
 # include "get_next_line/get_next_line.h"
+# include "libft/libft.h"
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -72,7 +72,7 @@ int					checkdup(t_stack **a);
 
 // COSTS
 void				costcalc(t_stack **a, t_stack **b);
-void 				cheapestmove(t_stack **a, t_stack **b);
+void				cheapestmove(t_stack **a, t_stack **b);
 int					absvalue(int n);
 
 // NODES

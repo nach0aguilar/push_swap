@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:25 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/20 21:56:00 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/11 13:27:41 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	reverse_a(t_stack **a)
 	reverse(a);
 	ft_printf("rra\n");
 }
+
 void	reverse_b(t_stack **b)
 {
 	reverse(b);

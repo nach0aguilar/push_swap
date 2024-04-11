@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 10:50:00 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/21 15:59:19 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/11 13:31:11 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,33 @@ static void	separation(t_stack **a, t_stack **b)
 		push_b(a, b);
 }
 
-static void finalsort(t_stack **a, int pos)
+static void	finalsort(t_stack **a, int pos)
 {
-	int count;
+	int	count;
 
 	count = 0;
 	if (pos < maxindex(a) / 2)
-		while(pos != 0)
+	{
+		while (pos != 0)
 		{
 			rotate_a(a);
 			pos--;
 		}
+	}
 	else
-		while(count != stacksize(a) - pos)
+	{
+		while (count != stacksize(a) - pos)
 		{
 			reverse_a(a);
 			count++;
 		}
-	
+	}
 }
 
-void		sort_all(t_stack **a, t_stack **b)
+void	sort_all(t_stack **a, t_stack **b)
 {
 	int	min_pos;
-	
+
 	separation(a, b);
 	sort_3(a);
 	while (*b != NULL)

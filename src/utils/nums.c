@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:15:56 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/21 21:23:18 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/11 14:04:42 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	checkdup(t_stack **a)
 		{
 			if (comp->nb == cur->nb)
 			{
-				ft_printf("Error\n");
+				ft_putstr_fd("Error\n", 2);
 				return (0);
 			}
 			comp = comp->next;
@@ -63,8 +63,8 @@ int	checkdup(t_stack **a)
 
 int	maxnum(t_stack **a)
 {
-	t_stack *cur;
-	int num;
+	t_stack	*cur;
+	int		num;
 
 	cur = *a;
 	num = (cur)->nb;

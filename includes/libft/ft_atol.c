@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 15:23:36 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/11 16:11:56 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/11 16:24:33 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int	ft_atoi(const char *str)
+long	ft_atol(const char *str)
 {
-	int				i;
-	int				sign;
-	unsigned int	num;
+	long			i;
+	long			sign;
+	long			num;
 
 	i = 0;
 	sign = 1;
@@ -33,7 +33,7 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 		num = num * 10 + (str[i++] - '0');
-	return ((int)(sign * num));
+	return ((long)(sign * num));
 }
 
 // int main()

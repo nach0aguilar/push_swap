@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 17:58:35 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/10 16:55:42 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/11 13:23:13 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,29 +40,29 @@ void	bonus_checker(t_stack **a, t_stack **b, char *op)
 
 int	main(int argc, char **argv)
 {
-	t_stack	**stack_A;
-	t_stack	**stack_B;
-    char    *op;
-	
+	t_stack	**stack_a;
+	t_stack	**stack_b;
+	char	*op;
+
 	if (argc < 2 || checknums(argv) == 0)
 		return (0);
 	else if (argc == 2)
 		argv = ft_split(argv[1], ' ');
-	stack_A = (t_stack **)malloc(sizeof(t_stack *));
-	*stack_A = newstack(stack_A, argv);
-	stack_B = (t_stack **)malloc(sizeof(t_stack *));
-    op = get_next_line(0);
-    while(op != NULL)
-    {
-        if(strncmp(op, "Error\n", 6) == 0)
-            return (0);
-        bonus_checker(stack_A, stack_B, op);
-        op = get_next_line(0);
-    }
-    if(checksort(stack_A, stack_B))
-        ft_printf("OK\n");
-    else
-        ft_printf("KO\n");
-    freestack(stack_A);
-    freestack(stack_B);
+	stack_a = (t_stack **)malloc(sizeof(t_stack *));
+	*stack_a = newstack(stack_a, argv);
+	stack_b = (t_stack **)malloc(sizeof(t_stack *));
+	op = get_next_line(0);
+	while (op != NULL)
+	{
+		if (strncmp(op, "Error\n", 6) == 0)
+			return (0);
+		bonus_checker(stack_a, stack_b, op);
+		op = get_next_line(0);
+	}
+	if (checksort(stack_a, stack_b))
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
+	freestack(stack_a);
+	freestack(stack_b);
 }

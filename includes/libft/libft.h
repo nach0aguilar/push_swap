@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 19:18:01 by igaguila          #+#    #+#             */
-/*   Updated: 2023/12/14 19:06:37 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/11 16:12:51 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strdup(const char *s);
 void				*ft_calloc(size_t count, size_t size);
+long				ft_atol(const char *str);
 int					ft_atoi(const char *str);
 char				*ft_strnstr(const char *big, const char *little,
 						size_t len);
