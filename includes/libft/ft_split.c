@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 12:58:52 by igaguila          #+#    #+#             */
-/*   Updated: 2024/02/21 11:14:26 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/17 20:05:56 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ char	**ft_split(char const *s, char c)
 	char	**array;
 
 	i = 0;
-	j = 1;
+	j = 0;
 	array = (char **)malloc(sizeof(char *) * (words(s, c) + 1));
 	if (!array || !s)
 		return (0);
@@ -83,7 +83,6 @@ char	**ft_split(char const *s, char c)
 			i++;
 		else
 		{
-			array[0] = " ";
 			array[j] = make_word(s, c, i);
 			if (!array[j])
 				return (memory_clear(array, j));

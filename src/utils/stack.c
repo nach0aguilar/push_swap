@@ -6,11 +6,20 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:06:34 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/17 14:54:19 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/17 20:57:19 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
+
+// static void freesplit(char **array)
+// {
+// 	int i = -1;
+	
+// 	while (array[++i])
+// 		free(array[i]);
+// 	free(array);
+// }
 
 t_stack	*addnodes(t_stack *head, int num)
 {

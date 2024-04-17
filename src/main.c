@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/17 15:00:50 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/17 20:56:27 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,20 @@
 // 			cur_b->pos);
 // 		cur_b = cur_b->next;
 // 	}
+// }
+
+// static void exittt()
+// {
+// 	system("leaks push_swap");
+// }
+
+// static void freesplit(char **array)
+// {
+// 	int i = -1;
+	
+// 	while (array[++i])
+// 		free(array[i]);
+// 	free(array);
 // }
 
 static void	check_space_before_num(char **nums)
@@ -64,9 +78,9 @@ static char **one_arg_process(char **argv)
 {
 	long n;
 	char **nums;
-	
-	n = ft_atol(ft_split(argv[1], ' ')[1]);
-	if (n < -2147483648 || n > 2147483647)
+	nums = ft_split(argv[1], ' ');
+	n = ft_atol(nums[0]);
+	if (n < -2147483648 || n > 2147483647 || !checknums(argv))
 	{
 		ft_putstr_fd("Error\n", 2);
 		exit(EXIT_FAILURE);
