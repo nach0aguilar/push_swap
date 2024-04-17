@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/11 18:04:06 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/17 15:00:50 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,21 @@ static void	check_space_before_num(char **nums)
 	}
 }
 
+static char **one_arg_process(char **argv)
+{
+	long n;
+	char **nums;
+	
+	n = ft_atol(ft_split(argv[1], ' ')[1]);
+	if (n < -2147483648 || n > 2147483647)
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(EXIT_FAILURE);
+	}
+	nums = ft_split(argv[1], ' ');
+	return (nums);
+}
+
 static void	push_swap(t_stack **a, t_stack **b)
 {
 	if (!checksort(a, b))
@@ -77,22 +92,21 @@ int	main(int argc, char **argv)
 {
 	t_stack	**stack_a;
 	t_stack	**stack_b;
-	long	n;
+	char	**nums;
 
-	if (argc < 2 || checknums(argv) == 0 || strncmp(argv[1], "", 1) == 0)
+	if (argc < 2)
+		return (0);
+	else if (strncmp(argv[1], "", 1) == 0)
 		return (ft_putstr_fd("Error\n", 2), 0);
-	else if (argc >= 2)
-	{
-		check_space_before_num(argv);
-		n = ft_atol(ft_split(argv[1], ' ')[1]);
-		if (n < -2147483648 || n > 2147483647)
-		{
-			ft_putstr_fd("Error\n", 2);
-			exit(EXIT_FAILURE);
-		}
-	}
+	else if (argc == 2)
+		nums = one_arg_process(argv);
+	else
+		nums = argv;
+	check_space_before_num(argv);
+	if(!checknums(nums))
+		return (ft_putstr_fd("Error\n", 2), 0);
 	stack_a = (t_stack **)malloc(sizeof(t_stack *));
-	*stack_a = newstack(stack_a, argv);
+	*stack_a = newstack(stack_a, nums);
 	stack_b = (t_stack **)malloc(sizeof(t_stack *));
 	if (!checkdup(stack_a))
 		return (0);
