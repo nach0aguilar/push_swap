@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:43 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/11 13:19:50 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/18 18:20:45 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,15 @@ int					pivot(t_stack **s);
 int					maxindex(t_stack **a);
 int					minindex(t_stack **a);
 
+// FREE
+void				freesplit(char **array);
+void				freestack(t_stack **s);
+
 // STACK
 t_stack				*newstack(t_stack **stack, char **nums);
 t_stack				*addnodes(t_stack *head, int num);
 int					stacksize(t_stack **a);
 int					checksort(t_stack **a, t_stack **b);
-void				freestack(t_stack **s);
 
 // NUMS
 int					checknums(char **nums);

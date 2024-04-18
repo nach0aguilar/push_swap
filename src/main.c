@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/17 20:56:27 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/18 18:20:30 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,7 @@
 
 // static void exittt()
 // {
-// 	system("leaks push_swap");
-// }
-
-// static void freesplit(char **array)
-// {
-// 	int i = -1;
-	
-// 	while (array[++i])
-// 		free(array[i]);
-// 	free(array);
+//  	system("leaks push_swap");
 // }
 
 static void	check_space_before_num(char **nums)
@@ -59,10 +50,10 @@ static void	check_space_before_num(char **nums)
 	j = 1;
 	while (nums[i])
 	{
-		while(nums[i][j])
+		while (nums[i][j])
 		{
-			if ((nums[i][j] == '-' || nums[i][j] == '+') && (nums[i][j - 1] >= '0'
-					&& nums[i][j - 1] <= '9'))
+			if ((nums[i][j] == '-' || nums[i][j] == '+') && (nums[i][j
+					- 1] >= '0' && nums[i][j - 1] <= '9'))
 			{
 				ft_putstr_fd("Error\n", 2);
 				exit(EXIT_FAILURE);
@@ -74,15 +65,17 @@ static void	check_space_before_num(char **nums)
 	}
 }
 
-static char **one_arg_process(char **argv)
+static char	**one_arg_process(char **argv)
 {
-	long n;
-	char **nums;
+	long	n;
+	char	**nums;
+
 	nums = ft_split(argv[1], ' ');
 	n = ft_atol(nums[0]);
 	if (n < -2147483648 || n > 2147483647 || !checknums(argv))
 	{
 		ft_putstr_fd("Error\n", 2);
+		freesplit(nums);
 		exit(EXIT_FAILURE);
 	}
 	nums = ft_split(argv[1], ' ');
@@ -117,14 +110,14 @@ int	main(int argc, char **argv)
 	else
 		nums = argv;
 	check_space_before_num(argv);
-	if(!checknums(nums))
+	if (!checknums(nums))
 		return (ft_putstr_fd("Error\n", 2), 0);
 	stack_a = (t_stack **)malloc(sizeof(t_stack *));
 	*stack_a = newstack(stack_a, nums);
 	stack_b = (t_stack **)malloc(sizeof(t_stack *));
 	if (!checkdup(stack_a))
-		return (0);
+		return (freestack(stack_a), free(stack_b), 0);
 	push_swap(stack_a, stack_b);
 	freestack(stack_a);
-	freestack(stack_b);
+	free(stack_b);
 }

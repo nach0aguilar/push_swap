@@ -1,35 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/20 13:54:28 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/18 18:20:17 by igaguila         ###   ########.fr       */
+/*   Created: 2024/04/18 17:19:26 by igaguila          #+#    #+#             */
+/*   Updated: 2024/04/18 18:21:14 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-void	push_a(t_stack **a, t_stack **b)
+void	freesplit(char **array)
 {
-	t_stack	*temp;
+	int	i;
 
-	temp = *b;
-	*b = (*b)->next;
-	temp->next = *a;
-	*a = temp;
-	ft_printf("pa\n");
+	i = -1;
+	while (array[++i])
+		free(array[i]);
+	free(array);
 }
 
-void	push_b(t_stack **a, t_stack **b)
+void	freestack(t_stack **s)
 {
-	t_stack	*temp;
+	t_stack	*cur;
+	t_stack	*tmp;
 
-	temp = *a;
-	*a = (*a)->next;
-	temp->next = *b;
-	*b = temp;
-	ft_printf("pb\n");
+	cur = *s;
+	while (cur != NULL)
+	{
+		tmp = cur;
+		cur = cur->next;
+		free(tmp);
+	}
+	free(s);
 }
