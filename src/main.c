@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/19 18:00:04 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/19 20:42:45 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static char	**one_arg_process(char **argv)
 
 	nums = ft_split(argv[1], ' ');
 	n = ft_atol(nums[0]);
-	if (n < -2147483648 || n > 2147483647 || !checknums(argv))
+	if (n < -2147483648 || n > 2147483647)
 	{
 		ft_putstr_fd("Error\n", 2);
 		freesplit(nums);
@@ -103,7 +103,7 @@ int	main(int argc, char **argv)
 	else if (argc == 2)
 		nums = one_arg_process(argv);
 	else
-		nums = argv;
+		nums = argv + 1;
 	check_space_before_num(argv);
 	if (!checknums(nums))
 		return (ft_putstr_fd("Error\n", 2), 0);
@@ -113,7 +113,6 @@ int	main(int argc, char **argv)
 	if (!checkdup(stack_a))
 		return (freestack(stack_a), free(stack_b), 0);
 	push_swap(stack_a, stack_b);
-	// printstack(stack_a, stack_b);
 	freestack(stack_a);
 	free(stack_b);
 }

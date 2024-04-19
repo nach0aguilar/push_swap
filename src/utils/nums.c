@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:15:56 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/11 14:04:42 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/19 19:24:01 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	checknums(char **nums)
 	int	i;
 	int	j;
 
-	i = 1;
+	i = 0;
 	j = 0;
 	while (nums[i])
 	{

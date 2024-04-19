@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:43 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/18 18:20:45 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/19 20:42:29 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_stack
 	int				cost_b;
 	struct s_stack	*next;
 }					t_stack;
+
 
 // SWAP
 void				swap_a(t_stack **a);
