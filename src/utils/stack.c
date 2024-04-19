@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:06:34 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/18 18:19:46 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/19 17:57:21 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_stack	*newstack(t_stack **stack, char **nums)
 	int		i;
 	long	n;
 
-	i = 0;
+	i = -1;
 	n = 0;
 	while (nums[++i])
 	{

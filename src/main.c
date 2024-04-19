@@ -6,40 +6,35 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/18 18:20:30 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/19 18:00:04 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
 
-// void	printstack(t_stack **a, t_stack **b)
-// {
-// 	t_stack	*cur_a;
-// 	t_stack	*cur_b;
+void	printstack(t_stack **a, t_stack **b)
+{
+	t_stack	*cur_a;
+	t_stack	*cur_b;
 
-// 	cur_a = *a;
-// 	cur_b = *b;
-// 	printf("\nSTACK A\n");
-// 	while (cur_a != NULL)
-// 	{
-// 		ft_printf("Num: %d - Index: %d - Pos: %d\n", cur_a->nb, cur_a->index,
-// 			cur_a->pos);
-// 		cur_a = cur_a->next;
-// 	}
-// 	printf("\n------------------\n");
-// 	printf("\nSTACK B\n");
-// 	while (cur_b != NULL)
-// 	{
-// 		ft_printf("Num: %d - Index: %d - Pos: %d\n", cur_b->nb, cur_b->index,
-// 			cur_b->pos);
-// 		cur_b = cur_b->next;
-// 	}
-// }
-
-// static void exittt()
-// {
-//  	system("leaks push_swap");
-// }
+	cur_a = *a;
+	cur_b = *b;
+	printf("\nSTACK A\n");
+	while (cur_a != NULL)
+	{
+		ft_printf("Num: %d - Index: %d - Pos: %d\n", cur_a->nb, cur_a->index,
+			cur_a->pos);
+		cur_a = cur_a->next;
+	}
+	printf("\n------------------\n");
+	printf("\nSTACK B\n");
+	while (cur_b != NULL)
+	{
+		ft_printf("Num: %d - Index: %d - Pos: %d\n", cur_b->nb, cur_b->index,
+			cur_b->pos);
+		cur_b = cur_b->next;
+	}
+}
 
 static void	check_space_before_num(char **nums)
 {
@@ -118,6 +113,7 @@ int	main(int argc, char **argv)
 	if (!checkdup(stack_a))
 		return (freestack(stack_a), free(stack_b), 0);
 	push_swap(stack_a, stack_b);
+	// printstack(stack_a, stack_b);
 	freestack(stack_a);
 	free(stack_b);
 }
