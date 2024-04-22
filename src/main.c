@@ -6,35 +6,11 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/19 20:42:45 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:58:45 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/pushswap.h"
-
-void	printstack(t_stack **a, t_stack **b)
-{
-	t_stack	*cur_a;
-	t_stack	*cur_b;
-
-	cur_a = *a;
-	cur_b = *b;
-	printf("\nSTACK A\n");
-	while (cur_a != NULL)
-	{
-		ft_printf("Num: %d - Index: %d - Pos: %d\n", cur_a->nb, cur_a->index,
-			cur_a->pos);
-		cur_a = cur_a->next;
-	}
-	printf("\n------------------\n");
-	printf("\nSTACK B\n");
-	while (cur_b != NULL)
-	{
-		ft_printf("Num: %d - Index: %d - Pos: %d\n", cur_b->nb, cur_b->index,
-			cur_b->pos);
-		cur_b = cur_b->next;
-	}
-}
 
 static void	check_space_before_num(char **nums)
 {
@@ -73,7 +49,6 @@ static char	**one_arg_process(char **argv)
 		freesplit(nums);
 		exit(EXIT_FAILURE);
 	}
-	nums = ft_split(argv[1], ' ');
 	return (nums);
 }
 
@@ -113,6 +88,7 @@ int	main(int argc, char **argv)
 	if (!checkdup(stack_a))
 		return (freestack(stack_a), free(stack_b), 0);
 	push_swap(stack_a, stack_b);
-	freestack(stack_a);
-	free(stack_b);
+	if (argc == 2)
+		freesplit(nums);
+	return (freestack(stack_a),	free(stack_b), 0);
 }

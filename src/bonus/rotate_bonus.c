@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 18:00:27 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/11 13:24:26 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/22 19:11:40 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	bonus_rotate_a(t_stack **a)
 {
 	t_stack	*temp;
 
+	if (stacksize(a) < 2)
+		return ;
 	temp = *a;
 	while ((*a)->next)
 		*a = (*a)->next;
@@ -28,6 +30,8 @@ void	bonus_rotate_b(t_stack **b)
 {
 	t_stack	*temp;
 
+	if (stacksize(b) < 2)
+		return ;
 	temp = *b;
 	while ((*b)->next)
 		*b = (*b)->next;
@@ -38,19 +42,6 @@ void	bonus_rotate_b(t_stack **b)
 
 void	bonus_rotate_ab(t_stack **a, t_stack **b)
 {
-	t_stack	*temp_a;
-	t_stack	*temp_b;
-
-	temp_a = *a;
-	while ((*a)->next)
-		*a = (*a)->next;
-	(*a)->next = temp_a;
-	*a = temp_a->next;
-	temp_a->next = NULL;
-	temp_b = *b;
-	while ((*b)->next)
-		*b = (*b)->next;
-	(*b)->next = temp_b;
-	*b = temp_b->next;
-	temp_b->next = NULL;
+	bonus_rotate_a(a);
+	bonus_rotate_b(b);
 }

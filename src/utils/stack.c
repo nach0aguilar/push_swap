@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:06:34 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/19 19:10:23 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/22 19:05:04 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ t_stack	*newstack(t_stack **stack, char **nums)
 	while (nums[++i])
 	{
 		n = ft_atol(nums[i]);
+		ft_atol_ps(nums[i]);
 		if (n < -2147483648 || n > 2147483647)
 		{
 			ft_putstr_fd("Error\n", 2);

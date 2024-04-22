@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:15:56 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/19 19:24:01 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:48:14 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,30 @@ int	maxnum(t_stack **a)
 		cur = cur->next;
 	}
 	return (num);
+}
+long	ft_atol_ps(const char *str)
+{
+	long			i;
+	long			sign;
+	long			num;
+
+	i = 0;
+	sign = 1;
+	num = 0;
+	while ((str[i] == 32) || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if ((str[i] == '-') || (str[i] == '+'))
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	while (str[i] >= '0' && str[i] <= '9')
+		num = num * 10 + (str[i++] - '0');
+	if (str[i])
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(EXIT_SUCCESS);
+	}
+	return ((long)(sign * num));
 }

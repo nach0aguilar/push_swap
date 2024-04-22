@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 17:59:25 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/11 13:25:21 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/22 19:13:19 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	bonus_reverse(t_stack **stack)
 	t_stack	*temp;
 	t_stack	*lastnode;
 
+	if (stacksize(stack) < 2)
+		return ;
 	temp = NULL;
 	lastnode = *stack;
 	while (lastnode->next)

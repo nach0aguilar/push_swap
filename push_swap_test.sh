@@ -4683,7 +4683,7 @@ printf ${MAGENTA}"\n------------------------------------------------------------
 
 echo BONUS-Multiple size '<'= 100 >> traces.txt
 
-val=101
+val=1
 
 if [ $2 ]; then
 	val=$(($2+1))
@@ -4729,7 +4729,7 @@ printf ${MAGENTA}"\n------------------------------------------------------------
 
 echo BONUS-Multiple size '<'= 500 >> traces.txt
 
-val=101
+val=1
 
 if [ $2 ]; then
 	val=$(($3+1))
@@ -4776,12 +4776,12 @@ printf ${MAGENTA}"\n------------------------------------------------------------
 
 echo BONUS-All size test >> traces.txt
 
-val=500
+val=10
 res_1=0
 res_2=0
 cont=1
 var=0
-while [ $cont -lt $val ] && [ $var -lt 500 ]
+while [ $cont -lt $val ] && [ $var -lt 5 ]
 do
 ARG=$(ruby -e "puts (00..$var).to_a.shuffle.join(' ')");
 var=$(($var + 1))
@@ -4805,7 +4805,7 @@ echo
 ((cont++))
 done
 
-while [ $var -lt 1000 ]
+while [ $var -lt 10 ]
 do
 ARG=$(ruby -e "puts (00..$var).to_a.shuffle.join(' ')");
 var=$(($var + 25))

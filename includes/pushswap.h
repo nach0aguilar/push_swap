@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:43 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/19 20:42:29 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/22 18:48:30 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct s_stack
 	int				cost_b;
 	struct s_stack	*next;
 }					t_stack;
-
 
 // SWAP
 void				swap_a(t_stack **a);
@@ -73,6 +72,7 @@ int					checksort(t_stack **a, t_stack **b);
 int					checknums(char **nums);
 int					maxnum(t_stack **a);
 int					checkdup(t_stack **a);
+long				ft_atol_ps(const char *str);
 
 // COSTS
 void				costcalc(t_stack **a, t_stack **b);
