@@ -6,53 +6,27 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 17:58:35 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/22 19:21:37 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/23 15:54:53 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/pushswap.h"
 
-static void	bonus_checker(t_stack **a, t_stack **b, char *op)
+static void	check_operations(char *op, t_stack **a, t_stack **b)
 {
-	if (ft_strncmp(op, "sa\n", 3) == 0)
-		bonus_swap_a(a);
-	else if (ft_strncmp(op, "sb\n", 3) == 0)
-		bonus_swap_b(b);
-	else if (ft_strncmp(op, "ss\n", 3) == 0)
-		bonus_swap_ab(a, b);
-	else if (ft_strncmp(op, "ra\n", 3) == 0)
-		bonus_rotate_a(a);
-	else if (ft_strncmp(op, "rb\n", 3) == 0)
-		bonus_rotate_b(b);
-	else if (ft_strncmp(op, "rr\n", 3) == 0)
-		bonus_rotate_ab(a, b);
-	else if (ft_strncmp(op, "rra\n", 4) == 0)
-		bonus_reverse_a(a);
-	else if (ft_strncmp(op, "rrb\n", 4) == 0)
-		bonus_reverse_b(b);
-	else if (ft_strncmp(op, "rrr\n", 4) == 0)
-		bonus_reverse_ab(a, b);
-	else if (ft_strncmp(op, "pa\n", 3) == 0)
-		bonus_push_a(a, b);
-	else if (ft_strncmp(op, "pb\n", 3) == 0)
-		bonus_push_b(a, b);
-	else
+	while (op != NULL)
 	{
-		ft_putstr_fd("Error\n", 2);
-		exit(EXIT_FAILURE);
+		if (strncmp(op, "Error\n", 6) == 0)
+			return ;
+		free(op);
+		op = bonus_process(a, b, op);
 	}
+	free(op);
+	if (checksort(a, b))
+		ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 }
-
-// static void check_operations(char *op, t_stack **a, t_stack **b)
-// {
-// 	while (op != NULL)
-// 	{
-// 		if (strncmp(op, "Error\n", 6) == 0)
-// 			exit(EXIT_FAILURE);
-// 		bonus_checker(a, b, op);
-// 		op = get_next_line(0);
-// 	}
-// }
 
 static char	**one_arg_process(char **argv)
 {
@@ -94,7 +68,7 @@ static void	check_space_before_num(char **nums)
 	}
 }
 
-void	check_input(int argc, char **argv, char **nums)
+static void	check_input(int argc, char **argv, char **nums)
 {
 	if (strncmp(argv[1], "", 1) == 0)
 	{
@@ -135,20 +109,8 @@ int	main(int argc, char **argv)
 	if (!checkdup(stack_a))
 		return (freestack(stack_a), free(stack_b), 0);
 	op = get_next_line(0);
-	while (op != NULL)
-	{
-		if (strncmp(op, "Error\n", 6) == 0)
-			return (0);
-		bonus_checker(stack_a, stack_b, op);
-		free(op);
-		op = get_next_line(0);
-	}
-	free(op);
-	if (checksort(stack_a, stack_b))
-		ft_printf("OK\n");
-	else
-		ft_printf("KO\n");
+	check_operations(op, stack_a, stack_b);
 	if (argc == 2)
 		freesplit(nums);
-	return (freestack(stack_a),	free(stack_b), 0);
+	return (freestack(stack_a), free(stack_b), 0);
 }

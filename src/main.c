@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:33 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/22 18:58:45 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/23 15:54:36 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,5 @@ int	main(int argc, char **argv)
 	push_swap(stack_a, stack_b);
 	if (argc == 2)
 		freesplit(nums);
-	return (freestack(stack_a),	free(stack_b), 0);
+	return (freestack(stack_a), free(stack_b), 0);
 }

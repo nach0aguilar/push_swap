@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/20 13:54:43 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/22 18:48:30 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/23 15:22:21 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,5 +106,7 @@ void				bonus_reverse(t_stack **stack);
 void				bonus_reverse_a(t_stack **a);
 void				bonus_reverse_b(t_stack **b);
 void				bonus_reverse_ab(t_stack **a, t_stack **b);
+
+char				*bonus_process(t_stack **a, t_stack **b, char *op);
 
 #endif

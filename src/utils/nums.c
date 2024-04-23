@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/20 15:15:56 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/22 18:48:14 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/04/23 15:55:37 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,12 @@ int	maxnum(t_stack **a)
 	}
 	return (num);
 }
+
 long	ft_atol_ps(const char *str)
 {
-	long			i;
-	long			sign;
-	long			num;
+	long	i;
+	long	sign;
+	long	num;
 
 	i = 0;
 	sign = 1;
